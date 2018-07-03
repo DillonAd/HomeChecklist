@@ -1,0 +1,9 @@
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/obj/Debug/netstandard2.0/HomeChecklist.Persistence.csprojAssemblyReference.cache
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/obj/Debug/netstandard2.0/HomeChecklist.Persistence.csproj.CoreCompileInputs.cache
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/obj/Debug/netstandard2.0/HomeChecklist.Persistence.AssemblyInfoInputs.cache
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/obj/Debug/netstandard2.0/HomeChecklist.Persistence.AssemblyInfo.cs
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/bin/Debug/netstandard2.0/HomeChecklist.Persistence.deps.json
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/bin/Debug/netstandard2.0/HomeChecklist.Persistence.dll
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/bin/Debug/netstandard2.0/HomeChecklist.Persistence.pdb
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/obj/Debug/netstandard2.0/HomeChecklist.Persistence.dll
+/home/dillon/source/repos/HomeChecklist/src/api/HomeChecklist.Persistence/obj/Debug/netstandard2.0/HomeChecklist.Persistence.pdb
