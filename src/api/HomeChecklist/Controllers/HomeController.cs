@@ -10,6 +10,8 @@ namespace HomeChecklist.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        public HomeController() {}
+
         // GET api/home
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
