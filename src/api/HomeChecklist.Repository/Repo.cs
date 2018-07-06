@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace HomeChecklist.Repository
 {
-    public class Repo<T> where T : Entity
+    public class Repo<T> where T : Entity, IRepo<T>
     {
         private readonly DbSet<T> _dbSet;
 
@@ -35,7 +35,7 @@ namespace HomeChecklist.Repository
         {
             _dbSet.Update(t);
         }
-        
+
         public void Delete(Specification<T> spec)
         {
             var targets = Get(spec);
