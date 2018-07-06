@@ -3,8 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 
 namespace HomeChecklist.Persistence
 {
@@ -12,11 +15,17 @@ namespace HomeChecklist.Persistence
     {
         public HomeChecklistDbContext CreateDbContext(string[] args)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
-            var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            //optionsBuilder("Data Source=blog.db");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                //TODO This is stupid. There has to be a better way.
+                .SetBasePath(Directory.GetCurrentDirectory() + "/../HomeChecklist")
+                .AddJsonFile("appsettings.json")
+                .Build();
+            var optionsBuilder = new DbContextOptionsBuilder<HomeChecklistDbContext>();
+            var connectionString = configuration.GetConnectionString("Default");
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new HomeChecklistDbContext(optionsBuilder.Options);
         }
+        
     }
 }
