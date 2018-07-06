@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HomeChecklist.Persistence\HomeChecklist.Persistence.csproj" />
+    <ProjectReference Include="..\HomeChecklist.Repository\HomeChecklist.Repository.csproj" />
   </ItemGroup>
 
 </Project>
