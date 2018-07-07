@@ -1,3 +1,4 @@
+using HomeChecklist.Common;
 using System;
 
 namespace HomeChecklist.Persistence.Entities

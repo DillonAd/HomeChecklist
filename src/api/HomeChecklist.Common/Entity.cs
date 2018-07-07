@@ -1,4 +1,4 @@
-namespace HomeChecklist.Persistence.Entities
+namespace HomeChecklist.Common
 {
     public abstract class Entity
     {

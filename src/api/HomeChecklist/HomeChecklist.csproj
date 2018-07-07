@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HomeChecklist.Repository\HomeChecklist.Repository.csproj" />
+    <ProjectReference Include="..\HomeChecklist.Common\HomeChecklist.Common.csproj" />
   </ItemGroup>
 
 </Project>

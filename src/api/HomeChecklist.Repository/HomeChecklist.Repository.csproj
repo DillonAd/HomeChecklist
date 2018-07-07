@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HomeChecklist.Persistence\HomeChecklist.Persistence.csproj" />
+    <ProjectReference Include="..\HomeChecklist.Common\HomeChecklist.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
