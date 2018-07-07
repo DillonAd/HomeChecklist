@@ -1,8 +1,10 @@
-﻿using System;
+﻿using HomeChecklist.Repository;
+using HomeChecklist.Repository.DTO;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace HomeChecklist.Controllers
 {
@@ -10,7 +12,12 @@ namespace HomeChecklist.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
-        public HomeController() {}
+        private readonly IRepo<Home> _homeRepo;
+
+        public HomeController(IRepo<Home> homeRepo)
+        {
+            _homeRepo = homeRepo;
+        }
 
         // GET api/home
         [HttpGet]
