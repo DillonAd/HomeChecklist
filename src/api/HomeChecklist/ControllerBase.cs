@@ -17,5 +17,32 @@ namespace HomeChecklist
         {
             _repo = repo;
         }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            return null;//return _repo.Get();
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
+        {
+            return "value";
+        }
+
+        [HttpPost]
+        public void Post([FromBody] string value)
+        {
+        }
+
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
     }
 }

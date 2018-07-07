@@ -1,4 +1,7 @@
-﻿using HomeChecklist.Persistence;
+﻿using HomeChecklist.Common;
+using HomeChecklist.Persistence;
+using HomeChecklist.Persistence.Entities;
+using HomeChecklist.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,6 +43,8 @@ namespace HomeChecklist
             {
                 c.SwaggerDoc("v1", new Info { Title = "Home Checklist API", Version = "v1" });
             });
+
+            services.AddTransient(typeof(IRepo<>), typeof(Repo<>));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
