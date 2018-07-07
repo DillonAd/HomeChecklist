@@ -1,8 +1,9 @@
+using HomeChecklist.Persistence.Entities;
 using System.Collections.Generic;
 
 namespace HomeChecklist.Repository.DTO
 {
-    public class Home
+    public class Home : Entity
     {
         public string Name { get; set; }
         public List<Resident> Residents { get; set; }
