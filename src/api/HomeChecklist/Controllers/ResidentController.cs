@@ -9,8 +9,8 @@ namespace HomeChecklist.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase<Room>
+    public class ResidentController : ControllerBase<Resident>
     {
-        public RoomController(IRepo<Room> roomRepo) : base(roomRepo) { }
+        public ResidentController(IRepo<Resident> residentRepo) : base(residentRepo) { }
     }
 }
