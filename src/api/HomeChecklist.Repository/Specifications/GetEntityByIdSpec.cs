@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace HomeChecklist.Repository.Specifications
 {
-    public class GetEntityById<T> : Specification<T>
+    public class GetEntityByIdSpec<T> : Specification<T>
         where T : Entity
     {
         public override Expression<Func<T, bool>> Expression =>
@@ -12,7 +12,7 @@ namespace HomeChecklist.Repository.Specifications
 
         private readonly int _id;
 
-        public GetEntityById(int id)
+        public GetEntityByIdSpec(int id)
         {
             _id = id;
         }
