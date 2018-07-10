@@ -8,15 +8,15 @@ import { environment } from '../../environments/environment';
 })
 export class TaskService {
 
-  private url: string = environment.baseUrl + "/api/task/";
+  private url: string = environment.baseUrl + '/api/task/';
 
   constructor(private http: HttpClient) { }
 
-  getTask(id: number) : Observable<Task> {
+  getTask(id: number): Observable<Task> {
     return this.http.get<Task>(this.url + id);
   }
 
-  getTasks() : Observable<Task[]> {
+  getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.url);
   }
 
@@ -29,6 +29,6 @@ export class TaskService {
   }
 
   deleteTask(taskId: number) {
-    this.http.delete(this.url + taskId)
+    this.http.delete(this.url + taskId);
   }
 }
