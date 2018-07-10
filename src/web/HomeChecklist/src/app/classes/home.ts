@@ -1,5 +1,5 @@
-import { Resident } from "./resident";
-import { Room } from "./room";
+import { Resident } from './resident';
+import { Room } from './room';
 
 export class Home {
     Id: number;
