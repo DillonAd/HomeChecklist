@@ -1,4 +1,4 @@
-export class Resident {
+export interface Resident {
     Id: number;
     Name: string;
 }
