@@ -1,7 +1,7 @@
 import { Resident } from './resident';
 import { Room } from './room';
 
-export class Home {
+export interface Home {
     Id: number;
     Name: string;
     Residents: Resident[];
