@@ -1,0 +1,6 @@
+version: '0.1.0'
+services: 
+  api:
+    build: ./src/api/
+  web:
+    build: ./src/web/HomeChecklist/
