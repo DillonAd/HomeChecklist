@@ -1,4 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: ""
 };
-//baseUrl: 'https://codejanitor.dynu.net/HomeChecklist'
