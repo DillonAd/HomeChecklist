@@ -1,3 +1,7 @@
-<p>
-  home works!
-</p>
+<div *ngIf="home != null">
+  <label>Home Name: </label>
+  <input id="txtNewHomeName" type="text" [(ngModel)]="home.Name" />
+  <br />
+  <br />
+  <input id="btnAdd" type="button" value="Add" (click)="addHome()"/>
+</div>
