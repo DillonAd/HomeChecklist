@@ -20,4 +20,12 @@ export class HomeComponent implements OnInit {
   addHome() {
     this.homeService.createHome(this.home);
   }
+
+  editHome() {
+    this.homeService.updateHome(this.home);
+  }
+
+  deleteHome() {
+    this.homeService.deleteHome(this.home.Id);
+  }
 }
