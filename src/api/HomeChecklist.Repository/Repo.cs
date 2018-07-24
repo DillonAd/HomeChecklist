@@ -1,4 +1,5 @@
 using HomeChecklist.Common;
+using HomeChecklist.Persistence;
 using HomeChecklist.Persistence.Entities;
 using HomeChecklist.Repository.Specifications;
 using Microsoft.EntityFrameworkCore;
@@ -8,13 +9,15 @@ using System.Linq;
 
 namespace HomeChecklist.Repository
 {
-    public class Repo<T> where T : Entity, IRepo<T>
+    public class Repo<T> : IRepo<T> where T : Entity
     {
+        private readonly HomeChecklistDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public Repo(DbSet<T> dbSet)
+        public Repo(HomeChecklistDbContext context)
         {
-            _dbSet = dbSet;
+            _context = context;
+            _dbSet = _context.Set<T>();
         }
 
         public T GetSingle(Specification<T> spec)
@@ -45,6 +48,11 @@ namespace HomeChecklist.Repository
             {
                 _dbSet.Remove(target);
             }
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

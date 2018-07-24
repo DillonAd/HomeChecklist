@@ -15,5 +15,6 @@ namespace HomeChecklist.Repository
         void Insert(T t);
         void Update(T t);
         void Delete(Specification<T> spec);
+        void Save();
     }
 }

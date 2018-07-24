@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace HomeChecklist.Persistence
 {
-    public class HomeChecklistDbContext : DbContext
+    public partial class HomeChecklistDbContext : DbContext
     {
         public virtual DbSet<Home> Homes { get; set; }
         public virtual DbSet<Resident> Residents { get; set; }
@@ -13,5 +13,14 @@ namespace HomeChecklist.Persistence
 
         public HomeChecklistDbContext(DbContextOptions<HomeChecklistDbContext> options)
             : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+		{
+            builder.Entity<Home>();
+            builder.Entity<Resident>();
+            builder.Entity<Room>();
+            builder.Entity<Task>();
+			//base.OnModelCreating(builder);
+		}
     }
 }

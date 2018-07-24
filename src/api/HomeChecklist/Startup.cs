@@ -38,13 +38,15 @@ namespace HomeChecklist
             services.AddDbContext<HomeChecklistDbContext>(options => 
                 options.UseSqlServer(connectionString));
 
+            services.AddCors();
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Home Checklist API", Version = "v1" });
             });
 
-            services.AddTransient(typeof(IRepo<>), typeof(Repo<>));
+            services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -71,6 +73,9 @@ namespace HomeChecklist
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "HomeChecklistAPI");
             });
+
+            app.UseCors();
+            app.UseDeveloperExceptionPage();
 
             app.UseMvc();
         }

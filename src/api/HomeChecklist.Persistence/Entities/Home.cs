@@ -6,8 +6,8 @@ namespace HomeChecklist.Persistence.Entities
     public class Home : Entity
     {
         public string Name { get; set; }
-        public List<Resident> Residents { get; set; }
-        public List<Room> Rooms { get; set; }
+        public virtual ICollection<Resident> Residents { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
 
         public Home()
         {
