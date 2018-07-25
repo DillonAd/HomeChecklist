@@ -42,6 +42,7 @@ namespace HomeChecklist
         {
             var input = _mapper.Map<TEntity>(t);
             _repo.Insert(input);
+            _repo.Save();
         }
 
         [HttpPut("{id}")]
@@ -49,12 +50,14 @@ namespace HomeChecklist
         {
             var input = _mapper.Map<TEntity>(t);
             _repo.Update(input);
+            _repo.Save();
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
             _repo.Delete(new GetEntityByIdSpec<TEntity>(id));
+            _repo.Save();
         }
     }
 }
