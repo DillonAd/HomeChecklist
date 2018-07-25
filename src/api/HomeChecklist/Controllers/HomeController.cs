@@ -1,5 +1,7 @@
-﻿using HomeChecklist.Repository;
-using HomeChecklist.Repository.DTO;
+﻿using AutoMapper;
+using HomeChecklist.DTO;
+using HomeChecklist.Persistence.Entities;
+using HomeChecklist.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,8 +12,9 @@ namespace HomeChecklist.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HomeController : ControllerBase<Home>
+    public class HomeController : ControllerBase<Home, HomeDTO>
     {
-        public HomeController(IRepo<Home> homeRepo) : base(homeRepo) { }
+        public HomeController(IRepo<Home> homeRepo, IMapper mapper) 
+            : base(homeRepo, mapper) { }
     }
 }

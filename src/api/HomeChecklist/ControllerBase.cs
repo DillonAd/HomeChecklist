@@ -1,6 +1,6 @@
+using AutoMapper;
 using HomeChecklist.Common;
 using HomeChecklist.Repository;
-using HomeChecklist.Repository.DTO;
 using HomeChecklist.Repository.Specifications;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,43 +10,51 @@ using System.Threading.Tasks;
 
 namespace HomeChecklist
 {
-    public class ControllerBase<T> where T : Entity
+    public class ControllerBase<TEntity, TDto> 
+        where TEntity : Entity
+        where TDto : class
     {
-        private readonly IRepo<T> _repo;
+        private readonly IRepo<TEntity> _repo;
+        private readonly IMapper _mapper;
 
-        public ControllerBase(IRepo<T> repo)
+        public ControllerBase(IRepo<TEntity> repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IEnumerable<T> Get()
+        public IEnumerable<TDto> Get()
         {
-            return _repo.Get(new GetAllSpec<T>());
+            var results = _repo.Get(new GetAllSpec<TEntity>());
+            return _mapper.Map<IEnumerable<TDto>>(results);
         }
 
         [HttpGet("{id}")]
-        public T Get(int id)
+        public TDto Get(int id)
         {
-            return _repo.GetSingle(new GetEntityByIdSpec<T>(id));
+            var result = _repo.GetSingle(new GetEntityByIdSpec<TEntity>(id));
+            return _mapper.Map<TDto>(result);
         }
 
         [HttpPost]
-        public void Post([FromBody] T t)
+        public void Post([FromBody] TDto t)
         {
-            _repo.Insert(t);
+            var input = _mapper.Map<TEntity>(t);
+            _repo.Insert(input);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] T t)
+        public void Put(int id, [FromBody] TDto t)
         {
-            _repo.Update(t);
+            var input = _mapper.Map<TEntity>(t);
+            _repo.Update(input);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _repo.Delete(new GetEntityByIdSpec<T>(id));
+            _repo.Delete(new GetEntityByIdSpec<TEntity>(id));
         }
     }
 }

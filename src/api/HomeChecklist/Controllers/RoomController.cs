@@ -1,5 +1,7 @@
-﻿using HomeChecklist.Repository;
-using HomeChecklist.Repository.DTO;
+﻿using AutoMapper;
+using HomeChecklist.DTO;
+using HomeChecklist.Persistence.Entities;
+using HomeChecklist.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,8 +11,9 @@ namespace HomeChecklist.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase<Room>
+    public class RoomController : ControllerBase<Room, RoomDTO>
     {
-        public RoomController(IRepo<Room> roomRepo) : base(roomRepo) { }
+        public RoomController(IRepo<Room> roomRepo, IMapper mapper) 
+            : base(roomRepo, mapper) { }
     }
 }
