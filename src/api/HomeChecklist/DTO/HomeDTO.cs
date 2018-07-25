@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace HomeChecklist.DTO
 {
-    public class HomeDTO : Entity
+    public class HomeDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
