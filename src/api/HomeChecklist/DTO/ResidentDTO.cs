@@ -1,7 +1,7 @@
 using HomeChecklist.Common;
 using System.Collections.Generic;
 
-namespace HomeChecklist.Repository.DTO
+namespace HomeChecklist.DTO
 {
     public class ResidentDTO
     {
