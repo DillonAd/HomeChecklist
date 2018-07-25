@@ -1,4 +1,5 @@
-﻿using HomeChecklist.Common;
+﻿using AutoMapper;
+using HomeChecklist.Common;
 using HomeChecklist.Persistence;
 using HomeChecklist.Persistence.Entities;
 using HomeChecklist.Repository;
@@ -47,6 +48,7 @@ namespace HomeChecklist
             });
 
             services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
+            services.AddAutoMapper();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
