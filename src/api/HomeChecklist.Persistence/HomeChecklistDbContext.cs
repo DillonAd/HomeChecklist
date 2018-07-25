@@ -20,7 +20,6 @@ namespace HomeChecklist.Persistence
             builder.Entity<Resident>();
             builder.Entity<Room>();
             builder.Entity<Task>();
-			//base.OnModelCreating(builder);
 		}
     }
 }
