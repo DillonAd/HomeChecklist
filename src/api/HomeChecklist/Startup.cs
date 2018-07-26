@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HomeChecklist.Common;
+using HomeChecklist.DTO;
 using HomeChecklist.Persistence;
 using HomeChecklist.Persistence.Entities;
 using HomeChecklist.Repository;

@@ -45,8 +45,8 @@ namespace HomeChecklist
             _repo.Save();
         }
 
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] TDto t)
+        [HttpPut]
+        public void Put([FromBody] TDto t)
         {
             var input = _mapper.Map<TEntity>(t);
             _repo.Update(input);
