@@ -67,7 +67,7 @@ namespace HomeChecklist
                 app.UseHsts();
                 app.UseHttpsRedirection();
             }
-
+            
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -78,9 +78,12 @@ namespace HomeChecklist
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "HomeChecklistAPI");
             });
 
-            app.UseCors();
-            app.UseDeveloperExceptionPage();
-
+            app.UseCors(options => 
+            {
+                options.AllowAnyHeader()
+                    .AllowAnyOrigin();
+            });
+            
             app.UseMvc();
         }
     }
