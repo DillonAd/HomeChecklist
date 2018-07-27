@@ -4,14 +4,16 @@ using HomeChecklist.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HomeChecklist.Persistence.Migrations
 {
     [DbContext(typeof(HomeChecklistDbContext))]
-    partial class HomeChecklistDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180726213510_Restructure")]
+    partial class Restructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
