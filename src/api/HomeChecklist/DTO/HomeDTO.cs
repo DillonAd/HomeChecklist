@@ -5,7 +5,7 @@ namespace HomeChecklist.DTO
 {
     public class HomeDTO
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
     }
 }
