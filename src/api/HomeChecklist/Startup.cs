@@ -84,7 +84,6 @@ namespace HomeChecklist
                 .AllowAnyHeader()
                 .AllowCredentials());
             
-
             app.UseMvc();
         }
     }
