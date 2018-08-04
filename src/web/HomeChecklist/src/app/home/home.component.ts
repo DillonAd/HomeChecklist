@@ -18,7 +18,10 @@ export class HomeComponent implements OnInit {
   }
 
   addHome() {
-    this.homeService.createHome(this.home);
+    this.home.Id = 1;
+    console.log(this.home);
+    this.homeService.createHome(this.home)
+      .subscribe();
   }
 
   editHome() {

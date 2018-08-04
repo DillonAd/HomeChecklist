@@ -11,12 +11,16 @@ import { Home } from '../interfaces/home';
 export class HomeListComponent implements OnInit {
 
   private homes: Observable<Home[]>;
+  private selectedHome: Home;
 
-  constructor(homeService: HomeService) {
+  constructor(private homeService: HomeService) {
     this.homes = homeService.getHomes();
   }
 
   ngOnInit() {
   }
 
+  newHome(): void {
+    this.selectedHome = { Id: null, Name: null }
+  }
 }

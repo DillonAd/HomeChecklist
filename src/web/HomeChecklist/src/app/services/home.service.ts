@@ -21,15 +21,15 @@ export class HomeService {
     return this.http.get<Home[]>(this.url);
   }
 
-  createHome(home: Home) {
-    this.http.post(this.url, home);
+  createHome(home: Home): Observable<Home> {
+    return this.http.post<Home>(this.url, home);
   }
 
-  updateHome(home: Home) {
-    this.http.put(this.url + home.Id, home);
+  updateHome(home: Home): Observable<any> {
+    return this.http.put(this.url + home.Id, home);
   }
 
-  deleteHome(homeId: number) {
-    this.http.delete(this.url + homeId);
+  deleteHome(homeId: number): Observable<any> {
+    return this.http.delete(this.url + homeId);
   }
 }
