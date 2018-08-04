@@ -41,7 +41,7 @@ namespace HomeChecklist
                 options.UseSqlServer(connectionString));
 
             services.AddCors();
-
+            
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -50,9 +50,9 @@ namespace HomeChecklist
 
             services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
             services.AddAutoMapper();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,12 +78,13 @@ namespace HomeChecklist
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "HomeChecklistAPI");
             });
 
-            app.UseCors(options => 
-            {
-                options.AllowAnyHeader()
-                    .AllowAnyOrigin();
-            });
+            app.UseCors(options => options
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
             
+
             app.UseMvc();
         }
     }
