@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let home of homes | async">
-    <ul>{{home.Name}}</ul>
+    <ul>{{home.name}}</ul>
   </li>
 </ul>
 <input id="btnNew" type="button" value="New" (click)="newHome()"/>

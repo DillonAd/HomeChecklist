@@ -28,6 +28,6 @@ export class HomeComponent implements OnInit {
   }
 
   deleteHome() {
-    this.homeService.deleteHome(this.home.Id);
+    this.homeService.deleteHome(this.home.id);
   }
 }

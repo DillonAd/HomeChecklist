@@ -26,7 +26,7 @@ export class HomeService {
   }
 
   updateHome(home: Home): Observable<any> {
-    return this.http.put(this.url + home.Id, home);
+    return this.http.put(this.url + home.id, home);
   }
 
   deleteHome(homeId: number): Observable<any> {

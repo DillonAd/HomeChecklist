@@ -21,6 +21,6 @@ export class HomeListComponent implements OnInit {
   }
 
   newHome(): void {
-    this.selectedHome = { Id: null, Name: null }
+    this.selectedHome = { id: null, name: null }
   }
 }
