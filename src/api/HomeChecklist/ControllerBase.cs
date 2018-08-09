@@ -24,10 +24,10 @@ namespace HomeChecklist
         }
 
         [HttpGet]
-        public IEnumerable<TDto> Get()
+        public TDto[] Get()
         {
             var results = _repo.Get(new GetAllSpec<TEntity>());
-            return _mapper.Map<IEnumerable<TDto>>(results);
+            return _mapper.Map<TDto[]>(results);
         }
 
         [HttpGet("{id}")]
