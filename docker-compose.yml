@@ -1,12 +1,7 @@
 version: "3.2"
-services: 
-  # api:
-  #   build: ./src/api/
-  #   ports:
-  #     - "5000:5000"
+services:
   db:
-    #image: microsoft/mssql-server-linux
-    image: mcmoe/mssqldocker
+    image: microsoft/mssql-server-linux
     ports: 
       - 1433:1433
     environment:
@@ -16,27 +11,21 @@ services:
       - MSSQL_USER=sa
       - MSSQL_PASSWORD=correctHorseBatteryStaple1
       - SA_PASSWORD=correctHorseBatteryStaple1
-#  web:
-#    build: ./src/web/HomeChecklist/
-#    ports:
-#      - "4200:4200"
   api:
     image: microsoft/dotnet:sdk
-    working_dir: /app
+    working_dir: /app/api/
     volumes:
-      - ./src/api/:/app
+      - ./src/api/:/app/api/
     ports:
       - "5000:5000"
-    entrypoint: dotnet watch --project /app/HomeChecklist/HomeChecklist.csproj run
-      #- dotnet ef database update --project /app/HomeChecklist.Persistence/HomeChecklist.Persistence.csproj  --startup-project /app/HomeChecklist/HomeChecklist.csproj
-      #- dotnet watch --project /app/HomeChecklist/HomeChecklist.csproj run
+    entrypoint: dotnet watch --project /app/api/HomeChecklist/HomeChecklist.csproj run
     depends_on:
       - db
   web:
     image: teracy/angular-cli
-    working_dir: /app
+    working_dir: /app/web
     volumes:
-      - ./src/web/HomeChecklist/:/app
+      - ./src/web/HomeChecklist/:/app/web/
     ports:
       - "4200:4200"
     entrypoint: ng serve --watch --host 0.0.0.0 --port 4200
