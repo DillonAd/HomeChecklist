@@ -20,6 +20,7 @@ namespace HomeChecklist.Persistence
                 .SetBasePath(Directory.GetCurrentDirectory() + "/../HomeChecklist")
                 .AddJsonFile("appsettings.json")
                 .Build();
+
             var optionsBuilder = new DbContextOptionsBuilder<HomeChecklistDbContext>();
             var connectionString = configuration.GetConnectionString("Default");
             optionsBuilder.UseSqlServer(connectionString);

@@ -12,7 +12,10 @@ namespace HomeChecklist.Persistence
         public virtual DbSet<Task> Tasks { get; set; }
 
         public HomeChecklistDbContext(DbContextOptions<HomeChecklistDbContext> options)
-            : base(options) { }
+            : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
 		{
