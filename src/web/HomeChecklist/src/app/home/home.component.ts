@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Home } from '../interfaces/home';
 import { HomeService } from '../services/home.service';
 
@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   @Input() show: boolean;
   @Input() home: Home;
+  @Output() homeChanged = new EventEmitter();
 
   constructor(private homeService: HomeService) { }
 
@@ -20,14 +21,22 @@ export class HomeComponent implements OnInit {
   addHome() {
     console.log(this.home);
     this.homeService.createHome(this.home)
-      .subscribe();
+      .subscribe(
+        complete => this.homeChanged.emit(this.home)
+      );
   }
 
   editHome() {
-    this.homeService.updateHome(this.home);
+    this.homeService.updateHome(this.home)
+      .subscribe(
+        complete => this.homeChanged.emit(this.home)
+      );
   }
 
   deleteHome() {
-    this.homeService.deleteHome(this.home.id);
+    this.homeService.deleteHome(this.home.id)
+      .subscribe(
+        complete => this.homeChanged.emit(this.home)
+      );
   }
 }
