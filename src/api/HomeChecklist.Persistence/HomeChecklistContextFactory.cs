@@ -26,7 +26,6 @@ namespace HomeChecklist.Persistence
             optionsBuilder.UseSqlServer(connectionString);
 
             return new HomeChecklistDbContext(optionsBuilder.Options);
-        }
-        
+        }   
     }
 }
