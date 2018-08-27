@@ -9,7 +9,6 @@ import { HomeService } from '../services/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  @Input() show: boolean;
   @Input() home: Home;
   @Output() homeChanged = new EventEmitter();
 
@@ -38,5 +37,9 @@ export class HomeComponent implements OnInit {
       .subscribe(
         complete => this.homeChanged.emit(this.home)
       );
+  }
+
+  cancel() {
+    this.home = null;
   }
 }
