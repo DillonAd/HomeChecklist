@@ -1,7 +1,7 @@
-<ul>
-  <li *ngFor="let home of homes | async">
-    <ul>{{home.name}}</ul>
-  </li>
-</ul>
+<mat-list>
+  <mat-list-item *ngFor="let home of homes | async">
+    {{home.name}}
+  </mat-list-item>
+</mat-list>
 <input id="btnNew" type="button" value="New" (click)="newHome()"/>
 <app-home [home]="selectedHome" (homeChanged)="updateHomes($event)"></app-home>

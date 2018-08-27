@@ -26,5 +26,6 @@ export class HomeListComponent implements OnInit {
 
   updateHomes(home: Home) {
     this.homes = this.homeService.getHomes();
+    this.selectedHome = null;
   }
 }

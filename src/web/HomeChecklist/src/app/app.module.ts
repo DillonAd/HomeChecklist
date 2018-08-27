@@ -14,7 +14,8 @@ import { RoomService } from './services/room.service';
 import { TaskComponent } from './task/task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskService } from './services/task.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule, MatInputModule, MatListModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,11 @@ import { TaskService } from './services/task.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule
   ],
   providers: [
     HomeService,

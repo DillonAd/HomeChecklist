@@ -1,7 +1,14 @@
-<div *ngIf="home != null">
-  <label>Home Name: </label>
-  <input id="txtNewHomeName" type="text" [(ngModel)]="home.Name" />
-  <br />
-  <br />
-  <input id="btnAdd" type="button" value="Add" (click)="addHome()"/>
-</div>
+<mat-card *ngIf="home != null">
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <label>Home Name: </label>
+      <mat-form-field>
+        <input matInput id="txtHomeName" name="txtHomeName" placeholder="Home Name" required [(ngModel)]="home.name" />
+      </mat-form-field>
+      <br />
+      <button mat-button id="btnAdd" value="Add" (click)="addHome()">Add</button>
+    </form>
+  </mat-card-content>
+</mat-card>
