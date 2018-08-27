@@ -15,7 +15,7 @@ import { TaskComponent } from './task/task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskService } from './services/task.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatInputModule, MatListModule } from '@angular/material';
+import { MatCardModule, MatInputModule, MatListModule, MatIconModule, MatButtonModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,9 +30,11 @@ import { MatCardModule, MatInputModule, MatListModule } from '@angular/material'
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   providers: [
     HomeService,
