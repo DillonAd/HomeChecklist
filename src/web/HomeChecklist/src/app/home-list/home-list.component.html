@@ -1,7 +1,15 @@
 <mat-list>
   <mat-list-item *ngFor="let home of homes | async">
     {{home.name}}
+    <button mat-button (click)="editHome(home)">
+      <mat-icon matListIcon>edit</mat-icon>
+    </button>
+    <button mat-button (click)="deleteHome(home)">
+      <mat-icon matListIcon>delete</mat-icon>
+    </button>
   </mat-list-item>
 </mat-list>
-<input id="btnNew" type="button" value="New" (click)="newHome()"/>
-<app-home [home]="selectedHome" (homeChanged)="updateHomes($event)"></app-home>
+<form>
+  <button mat-button (click)="editHome(null)">New</button>
+</form>
+<app-home [home]="selectedHome" (homeChanged)="refreshHomes($event)"></app-home>

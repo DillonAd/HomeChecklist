@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  editHome() {
+  updateHome() {
     this.homeService.updateHome(this.home)
       .subscribe(
         complete => this.homeChanged.emit(this.home)
