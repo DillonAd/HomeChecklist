@@ -26,7 +26,7 @@ export class TaskService {
   }
 
   updateTask(task: Task) {
-    this.http.put(this.url + task.Id, task);
+    this.http.put(this.url, task);
   }
 
   deleteTask(taskId: number) {

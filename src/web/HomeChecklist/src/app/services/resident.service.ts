@@ -26,7 +26,7 @@ export class ResidentService {
   }
 
   updateResident(resident: Resident) {
-    this.http.put(this.url + resident.Id, resident);
+    this.http.put(this.url, resident);
   }
 
   deleteResident(residentId: number) {
