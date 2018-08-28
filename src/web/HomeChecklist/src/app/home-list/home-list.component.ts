@@ -21,7 +21,7 @@ export class HomeListComponent implements OnInit {
   }
 
   editHome(home: Home): void {
-      this.selectedHome = home == null ? { id: null, name: null } : home;
+      this.selectedHome = home == null ? { id: null, name: null } : { id: home.id, name: home.name };
   }
 
   deleteHome(home: Home) {
