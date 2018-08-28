@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RoomService } from '../services/room.service';
+import { Room } from '../interfaces/room'
 
 @Component({
   selector: 'app-room-list',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomListComponent implements OnInit {
 
-  constructor() { }
+  public rooms: Observable<Room[]>;
+
+  constructor(private roomService: RoomService) { }
 
   ngOnInit() {
   }
