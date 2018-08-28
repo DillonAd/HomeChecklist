@@ -1,6 +1,14 @@
-<ul>
-  <li *ngFor="let task of tasks | async">
-    <ul>{{task.Name}}</ul>
-  </li>
-</ul>
-<app-task [task]="selectedTask"></app-task>
+<mat-card *ngIf="homeId != null">
+  <app-task [task]="selectedTask"></app-task>
+  <mat-list>
+    <mat-list-item *ngFor="let task of tasks | async">
+      {{task.Name}}
+      <button mat-button (click)="editHome(home)">
+        <mat-icon matListIcon>edit</mat-icon>
+      </button>
+      <button mat-button (click)="deleteHome(home)">
+        <mat-icon matListIcon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

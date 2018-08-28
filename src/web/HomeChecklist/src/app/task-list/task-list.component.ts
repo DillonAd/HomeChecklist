@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { Task } from '../interfaces/task';
 import { Observable } from 'rxjs';
@@ -10,12 +10,18 @@ import { Observable } from 'rxjs';
 })
 export class TaskListComponent implements OnInit {
 
-  public tasks : Observable<Task[]>;
+  @Input() homeId: number;
+  @Input() roomId: number;
 
-  constructor(taskService: TaskService) {
-    this.tasks = taskService.getTasks();
+  public tasks: Observable<Task[]>;
+
+  constructor(private taskService: TaskService) {
   }
 
   ngOnInit() {
+  }
+
+  refreshTasks() {
+    this.tasks = this.taskService.getTasks();
   }
 }
