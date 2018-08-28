@@ -10,6 +10,9 @@
   </mat-list-item>
 </mat-list>
 <form>
-  <button mat-button (click)="editHome(null)">New</button>
+  <button mat-button (click)="newHome()">New</button>
 </form>
-<app-home [home]="selectedHome" (homeChanged)="refreshHomes($event)"></app-home>
+
+<app-home [home]="selectedHome" 
+  (homeCreated)="createHome($event)" 
+  (homeChanged)="updateHome($event)"></app-home>

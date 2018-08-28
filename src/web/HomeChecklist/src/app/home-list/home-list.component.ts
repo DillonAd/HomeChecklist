@@ -14,22 +14,36 @@ export class HomeListComponent implements OnInit {
   private selectedHome: Home;
 
   constructor(private homeService: HomeService) {
-    this.homes = homeService.getHomes();
+    this.refreshHomes();
   }
 
   ngOnInit() {
   }
 
-  editHome(home: Home): void {
-      this.selectedHome = home == null ? { id: null, name: null } : { id: home.id, name: home.name };
+  createHome(home: Home) {
+    this.homeService.createHome(home).subscribe();
+    this.refreshHomes();
+  }
+
+  updateHome(home: Home) {
+    this.homeService.updateHome(home).subscribe();
+    this.refreshHomes();
+  }
+
+  newHome() {
+    this.selectedHome = { id: null, name: null };
+  }
+
+  editHome(home: Home) {
+      this.selectedHome = { id: home.id, name: home.name };
   }
 
   deleteHome(home: Home) {
     this.homeService.deleteHome(home.id).subscribe();
-    this.refreshHomes(this.selectedHome);
+    this.refreshHomes();
   }
 
-  refreshHomes(home: Home) {
+  refreshHomes() {
     this.homes = this.homeService.getHomes();
     this.selectedHome = null;
   }

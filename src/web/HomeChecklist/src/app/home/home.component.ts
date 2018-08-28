@@ -10,33 +10,20 @@ import { HomeService } from '../services/home.service';
 export class HomeComponent implements OnInit {
 
   @Input() home: Home;
-  @Output() homeChanged = new EventEmitter();
+  @Output() homeCreated: EventEmitter<Home> = new EventEmitter();
+  @Output() homeChanged: EventEmitter<Home> = new EventEmitter();
 
-  constructor(private homeService: HomeService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  addHome() {
-    console.log(this.home);
-    this.homeService.createHome(this.home)
-      .subscribe(
-        complete => this.homeChanged.emit(this.home)
-      );
+  createHome() {
+    this.homeCreated.emit(this.home);
   }
 
   updateHome() {
-    this.homeService.updateHome(this.home)
-      .subscribe(
-        complete => this.homeChanged.emit(this.home)
-      );
-  }
-
-  deleteHome() {
-    this.homeService.deleteHome(this.home.id)
-      .subscribe(
-        complete => this.homeChanged.emit(this.home)
-      );
+    this.homeChanged.emit(this.home);
   }
 
   cancel() {

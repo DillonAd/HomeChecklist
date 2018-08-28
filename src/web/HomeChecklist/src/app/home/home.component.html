@@ -5,11 +5,22 @@
     <form>
       <label>Home Name: </label>
       <mat-form-field>
-        <input matInput id="txtHomeName" name="txtHomeName" placeholder="Home Name" required [(ngModel)]="home.name" />
+        <input matInput id="txtHomeName" 
+          name="txtHomeName" 
+          placeholder="Home Name" 
+          required 
+          [(ngModel)]="home.name" />
       </mat-form-field>
       <br />
-      <button mat-button id="btnAdd" (click)="addHome()" *ngIf="home.id == null">Add</button>
-      <button mat-button id="btnUpdate" (click)="updateHome()" *ngIf="home.id != null">Update</button>
+      
+      <button mat-button id="btnAdd" 
+        (click)="createHome()" 
+        *ngIf="home.id == null">Add</button>
+
+      <button mat-button id="btnUpdate" 
+        (click)="updateHome()" 
+        *ngIf="home.id != null">Update</button>
+
       <button mat-button id="btnCancel" (click)="cancel()">Cancel</button>
     </form>
   </mat-card-content>
