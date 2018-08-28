@@ -15,14 +15,18 @@ import { TaskComponent } from './task/task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskService } from './services/task.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatInputModule, MatListModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatInputModule, MatListModule, MatIconModule, MatButtonModule, MatExpansionModule } from '@angular/material';
+import { RoomListComponent } from './room-list/room-list.component';
+import { RoomComponent } from './room/room.component';
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
     TaskComponent,
     HomeListComponent,
-    HomeComponent
+    HomeComponent,
+    RoomListComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { MatCardModule, MatInputModule, MatListModule, MatIconModule, MatButtonM
     MatCardModule,
     MatInputModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   providers: [
     HomeService,
