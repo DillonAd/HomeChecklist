@@ -14,8 +14,8 @@ namespace HomeChecklist
         where TEntity : Entity
         where TDto : class
     {
-        private readonly IRepo<TEntity> _repo;
-        private readonly IMapper _mapper;
+        protected readonly IRepo<TEntity> _repo;
+        protected readonly IMapper _mapper;
 
         public ControllerBase(IRepo<TEntity> repo, IMapper mapper)
         {

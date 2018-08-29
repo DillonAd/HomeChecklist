@@ -2,10 +2,12 @@
 using HomeChecklist.DTO;
 using HomeChecklist.Persistence.Entities;
 using HomeChecklist.Repository;
+using HomeChecklist.Repository.Specifications;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace HomeChecklist.Controllers
 {
@@ -15,5 +17,11 @@ namespace HomeChecklist.Controllers
     {
         public RoomController(IRepo<Room> roomRepo, IMapper mapper) 
             : base(roomRepo, mapper) { }
+
+        public RoomDTO[] GetRooms(int homeId)
+        {
+            var results = _repo.Get(new GetByHomeIdSpec<Room>(homeId));
+            return _mapper.Map<RoomDTO[]>(results);
+        }
     }
 }
