@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace HomeChecklist.Repository
 {
@@ -20,29 +21,29 @@ namespace HomeChecklist.Repository
             _dbSet = _context.Set<T>();
         }
 
-        public T GetSingle(Specification<T> spec)
+        public async Task<T> GetSingle(Specification<T> spec)
         {
-            return _dbSet.FirstOrDefault(spec.Expression);
+            return await _dbSet.FirstOrDefaultAsync(spec.Expression);
         }
 
-        public IEnumerable<T> Get(Specification<T> spec)
+        public async Task<IEnumerable<T>> Get(Specification<T> spec)
         {
-            return _dbSet.Where(spec.Expression);
+            return await _dbSet.Where(spec.Expression).ToListAsync();
         }
 
-        public void Insert(T t)
+        public async Task Insert(T t)
         {
-            _dbSet.Add(t);
+            await _dbSet.AddAsync(t);
         }
 
-        public void Update(T t)
+        public async Task Update(T t)
         {
-            _dbSet.Update(t);
+            await Task.FromResult(_dbSet.Update(t));
         }
 
-        public void Delete(Specification<T> spec)
+        public async Task Delete(Specification<T> spec)
         {
-            var targets = Get(spec);
+            var targets = await Get(spec);
 
             foreach(var target in targets)
             {
@@ -50,9 +51,9 @@ namespace HomeChecklist.Repository
             }
         }
 
-        public void Save()
+        public async Task Save()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }

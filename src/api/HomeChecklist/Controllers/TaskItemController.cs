@@ -11,9 +11,9 @@ namespace HomeChecklist.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaskController : ControllerBase<Task, TaskDTO>
+    public class TaskItemController : ControllerBase<TaskItem, TaskDTO>
     {
-        public TaskController(IRepo<Task> taskRepo, IMapper mapper) 
+        public TaskItemController(IRepo<TaskItem> taskRepo, IMapper mapper) 
             : base(taskRepo, mapper) { }
     }
 }

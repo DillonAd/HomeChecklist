@@ -9,7 +9,7 @@ namespace HomeChecklist.Persistence
         public virtual DbSet<Home> Homes { get; set; }
         public virtual DbSet<Resident> Residents { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<TaskItem> Tasks { get; set; }
 
         public HomeChecklistDbContext(DbContextOptions<HomeChecklistDbContext> options)
             : base(options)
@@ -22,7 +22,7 @@ namespace HomeChecklist.Persistence
             builder.Entity<Home>();
             builder.Entity<Resident>();
             builder.Entity<Room>();
-            builder.Entity<Task>();
+            builder.Entity<TaskItem>();
 		}
     }
 }

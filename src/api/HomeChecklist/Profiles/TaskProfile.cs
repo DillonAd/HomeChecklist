@@ -8,7 +8,7 @@ namespace HomeChecklist.Profiles
     {
         public TaskProfile()
         {
-            CreateMap<TaskDTO, Task>()
+            CreateMap<TaskDTO, TaskItem>()
                 .ForMember(t => t.Id, m => m.MapFrom(t => t.Id))
                 .ForMember(t => t.Name, m => m.MapFrom(t => t.Name))
                 .ForMember(t => t.Interval, m => m.MapFrom(t => t.Interval))

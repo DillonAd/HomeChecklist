@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeChecklist.Persistence.Entities
 {
-    public class Task : Entity
+    public class TaskItem : Entity
     {
         public string Name { get; set; }
         public DateTime LastDone { get; set; }
@@ -14,6 +14,6 @@ namespace HomeChecklist.Persistence.Entities
         public int ResidentId { get; set; }
         
 
-        public Task() { }
+        public TaskItem() { }
     }
 }
