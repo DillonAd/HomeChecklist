@@ -18,6 +18,7 @@ namespace HomeChecklist.Controllers
         public RoomController(IRepo<Room> roomRepo, IMapper mapper) 
             : base(roomRepo, mapper) { }
 
+        [HttpGet]
         public RoomDTO[] GetRooms(int homeId)
         {
             var results = _repo.Get(new GetByHomeIdSpec<Room>(homeId));
