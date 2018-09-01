@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoomService } from '../services/room.service';
 import { Room } from '../interfaces/room'
@@ -10,11 +10,17 @@ import { Room } from '../interfaces/room'
 })
 export class RoomListComponent implements OnInit {
 
+  @Input() homeId: number;
+
   public rooms: Observable<Room[]>;
 
   constructor(private roomService: RoomService) { }
 
   ngOnInit() {
+  }
+
+  refeshRooms() {
+    this.rooms = this.roomService.getRooms();
   }
 
 }
