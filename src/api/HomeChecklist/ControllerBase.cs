@@ -24,40 +24,40 @@ namespace HomeChecklist
         }
 
         [HttpGet]
-        public TDto[] Get()
+        public async Task<TDto[]> Get()
         {
-            var results = _repo.Get(new GetAllSpec<TEntity>());
+            var results = await _repo.Get(new GetAllSpec<TEntity>());
             return _mapper.Map<TDto[]>(results);
         }
 
         [HttpGet("{id}")]
-        public TDto Get(int id)
+        public async Task<TDto> Get(int id)
         {
-            var result = _repo.GetSingle(new GetEntityByIdSpec<TEntity>(id));
+            var result = await _repo.GetSingle(new GetEntityByIdSpec<TEntity>(id));
             return _mapper.Map<TDto>(result);
         }
 
         [HttpPost]
-        public void Post([FromBody] TDto t)
+        public async Task Post([FromBody] TDto t)
         {
             var input = _mapper.Map<TEntity>(t);
-            _repo.Insert(input);
-            _repo.Save();
+            await _repo.Insert(input);
+            await _repo.Save();
         }
 
         [HttpPut]
-        public void Put([FromBody] TDto t)
+        public async Task Put([FromBody] TDto t)
         {
             var input = _mapper.Map<TEntity>(t);
-            _repo.Update(input);
-            _repo.Save();
+            await _repo.Update(input);
+            await _repo.Save();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _repo.Delete(new GetEntityByIdSpec<TEntity>(id));
-            _repo.Save();
+            await _repo.Delete(new GetEntityByIdSpec<TEntity>(id));
+            await _repo.Save();
         }
     }
 }

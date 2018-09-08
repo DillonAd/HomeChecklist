@@ -19,9 +19,9 @@ namespace HomeChecklist.Controllers
             : base(roomRepo, mapper) { }
 
         [HttpGet]
-        public RoomDTO[] GetRooms(int homeId)
+        public async Task<RoomDTO[]> GetRooms(int homeId)
         {
-            var results = _repo.Get(new GetByHomeIdSpec<Room>(homeId));
+            var results = await _repo.Get(new GetByHomeIdSpec<Room>(homeId));
             return _mapper.Map<RoomDTO[]>(results);
         }
     }
