@@ -20,7 +20,7 @@ export class RoomListComponent implements OnInit {
   }
 
   refeshRooms() {
-    this.rooms = this.roomService.getRooms();
+    this.rooms = this.roomService.getRooms(this.homeId);
   }
 
 }

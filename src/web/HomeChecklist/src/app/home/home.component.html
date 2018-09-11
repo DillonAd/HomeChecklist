@@ -22,6 +22,8 @@
         *ngIf="home.id != null">Update</button>
 
       <button mat-button id="btnCancel" (click)="cancel()">Cancel</button>
+
+      <app-room-list [homeId]="home.id"></app-room-list>
     </form>
   </mat-card-content>
 </mat-card>
