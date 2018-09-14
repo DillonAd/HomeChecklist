@@ -1,3 +1,7 @@
+<button mat-button id="btnNewRoom" 
+  (click)="newRoom()">New Room</button>
+
+<app-room [homeId]="homeId" [room]="selectedRoom"></app-room>
 <mat-accordion>
   <mat-expansion-panel *ngFor="let room of rooms | async">
     <mat-expansion-panel-header>
@@ -5,6 +9,6 @@
         {{room.name}}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <app-task-list [homeId]="homeId"></app-task-list>
+    <app-task-list [homeId]="homeId" [roomId]="room.id"></app-task-list>
   </mat-expansion-panel>
-</mat-accordion>>
+</mat-accordion>

@@ -12,6 +12,8 @@ export class RoomListComponent implements OnInit {
 
   @Input() homeId: number;
 
+  private selectedRoom: Room;
+
   public rooms: Observable<Room[]>;
 
   constructor(private roomService: RoomService) { }
@@ -23,4 +25,7 @@ export class RoomListComponent implements OnInit {
     this.rooms = this.roomService.getRooms(this.homeId);
   }
 
+  newRoom() {
+    this.selectedRoom = { Id: null, Name: null };
+  }
 }
