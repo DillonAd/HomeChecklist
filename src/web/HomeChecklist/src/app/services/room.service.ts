@@ -7,18 +7,17 @@ import { Room } from '../interfaces/room';
 @Injectable({
   providedIn: 'root'
 })
-//RoomService... Get it... ;-)
 export class RoomService {
 
   private url: string = environment.baseUrl + '/api/room/';
 
   constructor(private http: HttpClient) { }
 
-  getRoom(id: number): Observable<Room> {
+  getRoom(id: number, homeId: number): Observable<Room> {
     return this.http.get<Room>(this.url + id);
   }
 
-  getRooms(): Observable<Room[]> {
+  getRooms(homeId: number): Observable<Room[]> {
     return this.http.get<Room[]>(this.url);
   }
 
