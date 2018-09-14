@@ -47,6 +47,4 @@ export class HomeListComponent implements OnInit {
     this.homes = this.homeService.getHomes();
     this.selectedHome = null;
   }
-
-
 }
