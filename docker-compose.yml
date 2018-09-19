@@ -18,7 +18,7 @@ services:
       - ./src/api/:/app/api/
     ports:
       - "5000:5000"
-    entrypoint: dotnet watch --project /app/api/HomeChecklist/HomeChecklist.csproj run
+    entrypoint: dotnet watch --project ./HomeChecklist/HomeChecklist.csproj run
     depends_on:
       - db
   web:
