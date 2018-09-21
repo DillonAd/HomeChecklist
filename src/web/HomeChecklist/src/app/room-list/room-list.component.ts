@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RoomService } from '../services/room.service';
-import { Room } from '../interfaces/room'
+import { Room } from '../interfaces/room';
 
 @Component({
   selector: 'app-room-list',
@@ -27,5 +27,15 @@ export class RoomListComponent implements OnInit {
 
   newRoom() {
     this.selectedRoom = { Id: null, Name: null };
+  }
+
+  createRoom(room: Room) {
+    this.roomService.createRoom(room);
+    this.refeshRooms();
+  }
+
+  updateRoom(room: Room) {
+    this.roomService.updateRoom(room);
+    this.refeshRooms();
   }
 }

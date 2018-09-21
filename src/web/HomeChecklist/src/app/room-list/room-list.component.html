@@ -1,7 +1,10 @@
 <button mat-button id="btnNewRoom" 
   (click)="newRoom()">New Room</button>
 
-<app-room [homeId]="homeId" [room]="selectedRoom"></app-room>
+<app-room [homeId]="homeId" [room]="selectedRoom"
+  *ngIf="selectedRoom == null"
+  (roomCreated)="createRoom($event)" 
+  (roomChanged)="updateRoom($event)"></app-room>
 <mat-accordion>
   <mat-expansion-panel *ngFor="let room of rooms | async">
     <mat-expansion-panel-header>
