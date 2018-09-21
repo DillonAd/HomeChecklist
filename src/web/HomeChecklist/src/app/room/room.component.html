@@ -1,3 +1,27 @@
-<p>
-  room works!
-</p>
+<mat-card *ngIf="room != null">
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <label>Room Name: </label>
+      <mat-form-field>
+        <input matInput id="txtRoomName" 
+          name="txtRoomName" 
+          placeholder="Room Name" 
+          required 
+          [(ngModel)]="room.name" />
+      </mat-form-field>
+      <br />
+      
+      <button mat-button id="btnAddRoom" 
+        (click)="createRoom()" 
+        *ngIf="room.id == null">Add</button>
+
+      <button mat-button id="btnUpdateRoom" 
+        (click)="updateRoom()" 
+        *ngIf="room.id != null">Update</button>
+
+      <button mat-button id="btnCancel" (click)="cancel()">Cancel</button>
+    </form>
+  </mat-card-content>
+</mat-card>
