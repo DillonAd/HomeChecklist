@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Home } from '../interfaces/home';
-import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-home',
