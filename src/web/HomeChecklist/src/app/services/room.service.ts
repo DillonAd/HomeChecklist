@@ -22,14 +22,14 @@ export class RoomService {
   }
 
   createRoom(room: Room) {
-    this.http.post(this.url, room);
+    this.http.post(this.url, room).subscribe();
   }
 
   updateRoom(room: Room) {
-    this.http.put(this.url, room);
+    this.http.put(this.url, room).subscribe();
   }
 
   deleteRoom(roomId: number) {
-    this.http.delete(this.url + roomId);
+    this.http.delete(this.url + roomId).subscribe();
   }
 }
