@@ -2,7 +2,7 @@
   (click)="newRoom()">New Room</button>
 
 <app-room [homeId]="homeId" [room]="selectedRoom"
-  *ngIf="selectedRoom == null"
+  *ngIf="selectedRoom != null"
   (roomCreated)="createRoom($event)" 
   (roomChanged)="updateRoom($event)"></app-room>
 <mat-accordion>
