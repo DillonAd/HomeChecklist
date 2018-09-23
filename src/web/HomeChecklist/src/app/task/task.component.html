@@ -1,3 +1,9 @@
-<p>
-  task works!
-</p>
+<mat-checkbox>
+    {{task.Name}}
+  </mat-checkbox>
+  <button mat-button (click)="editTask(task)">
+    <mat-icon matListIcon>edit</mat-icon>
+  </button>
+  <button mat-button (click)="deleteTask(task)">
+    <mat-icon matListIcon>delete</mat-icon>
+  </button>
