@@ -10,9 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class TaskListComponent implements OnInit {
 
-  @Input() homeId: number;
   @Input() roomId: number;
-  @Input() taskId: number;
+  // @Input() taskId: number;
 
   public tasks: Observable<Task[]>;
 

@@ -26,7 +26,7 @@ export class RoomListComponent implements OnInit {
   }
 
   newRoom() {
-    this.selectedRoom = { Id: null, Name: null };
+    this.selectedRoom = { Id: null, Name: null, HomeId: null };
   }
 
   createRoom(room: Room) {

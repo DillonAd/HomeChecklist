@@ -2,7 +2,7 @@
   <app-task [task]="selectedTask"></app-task>
   <mat-list>
     <mat-list-item *ngFor="let task of tasks | async">
-      <app-task [homeId]="homeId" [roomId]="roomId" [taskId]="taskId"></app-task>
+      <app-task [task]="task"></app-task>
     </mat-list-item>
   </mat-list>
 </mat-card>

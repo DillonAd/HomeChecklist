@@ -3,4 +3,5 @@ export interface Task {
     Name: string;
     LastDone: Date;
     Interval: number;
+    RoomId: number;
 }
