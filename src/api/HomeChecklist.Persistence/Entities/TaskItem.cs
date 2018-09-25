@@ -10,10 +10,9 @@ namespace HomeChecklist.Persistence.Entities
         public DateTime LastDone { get; set; }
         public TimeSpan Interval { get; set; }
 
-        public int HomeId { get; set; }
-        public int ResidentId { get; set; }
+        public int RoomId { get; set; }
+        public int? ResidentId { get; set; }
         
-
         public TaskItem() { }
     }
 }
