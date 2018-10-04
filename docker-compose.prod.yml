@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+  db:
+    image: microsoft/mssql-server-linux
+    ports: 
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+      - MSSQL_DB=HomeChecklistDb
+      - MSSQL_USER=sa
+      - MSSQL_PASSWORD=correctHorseBatteryStaple1
+      - SA_PASSWORD=correctHorseBatteryStaple1
+  api:
+    build: ./src/api/.
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  web:
+    build: ./src/web/HomeChecklist/.
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
