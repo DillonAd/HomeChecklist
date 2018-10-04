@@ -20,11 +20,31 @@ namespace HomeChecklist.Controllers
             _mapper = mapper;
         }
 
-        //[HttpGet]
-        //public async Task<RoomDTO[]> GetRooms(int homeId)
-        //{
-        //    //var results = await _repo.Get(new GetByHomeIdSpec<Room>(homeId));
-        //    //return _mapper.Map<RoomDTO[]>(results);
-        //}
+        [HttpGet]
+        public async Task<RoomDTO[]> GetRooms(int homeId)
+        {
+            var results = await _repo.GetRooms(homeId);
+            return _mapper.Map<RoomDTO[]>(results);
+        }
+
+        [HttpPost]
+        public async Task CreateRoom(RoomDTO dto)
+        {
+            var room = _mapper.Map<Room>(dto);
+            await _repo.AddRoom(room);
+        }
+
+        [HttpPut]
+        public async Task UpdateRoom(RoomDTO dto)
+        {
+            var room = _mapper.Map<Room>(dto);
+            await _repo.UpdateRoom(room);
+        }
+
+        [HttpDelete]
+        public async Task DeleteRoom(int roomId)
+        {
+            await _repo.DeleteRoom(roomId);
+        }
     }
 }

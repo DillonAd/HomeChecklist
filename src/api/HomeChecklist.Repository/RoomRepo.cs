@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HomeChecklist.Persistence;
 using HomeChecklist.Persistence.Entities;
 using HomeChecklist.Repository.Specifications;
 
@@ -27,14 +26,13 @@ namespace HomeChecklist.Repository
             await _repo.Save();
         }
 
-        public Task<IEnumerable<Room>> GetRooms(int homeId)
-        {
-            throw new System.NotImplementedException();
-        }
+        public async Task<IEnumerable<Room>> GetRooms(int homeId) =>
+            await _repo.Get(new RoomsByHomeSpec(homeId));
 
-        public Task UpdateRoom(Room room)
+        public async Task UpdateRoom(Room room)
         {
-            throw new System.NotImplementedException();
+            await _repo.Update(room);
+            await _repo.Save();
         }
     }
 }

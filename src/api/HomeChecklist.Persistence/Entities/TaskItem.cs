@@ -1,6 +1,5 @@
 using HomeChecklist.Common;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeChecklist.Persistence.Entities
 {
@@ -9,6 +8,7 @@ namespace HomeChecklist.Persistence.Entities
         public string Name { get; set; }
         public DateTime LastDone { get; set; }
         public TimeSpan Interval { get; set; }
+        public bool IsActive { get; set; }
 
         public int RoomId { get; set; }
         public int? ResidentId { get; set; }
