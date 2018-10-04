@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace HomeChecklist.Repository.Specifications
 {
-    public class AndSpec<T> : Specification<T>
+    internal class AndSpec<T> : Specification<T>
     {
         private readonly Specification<T> _specification1;
         private readonly Specification<T> _specification2;

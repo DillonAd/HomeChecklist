@@ -3,8 +3,8 @@ using HomeChecklist.Persistence.Entities;
 
 namespace HomeChecklist.Repository
 {
-    public class ResidentRepo : Repo<Resident>, IResidentRepo
+    public class ResidentRepo : IResidentRepo
     {
-        public ResidentRepo(HomeChecklistDbContext context) : base(context) { }
+        public ResidentRepo(HomeChecklistDbContext context) { }
     }
 }

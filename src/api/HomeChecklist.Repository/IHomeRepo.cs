@@ -1,12 +1,15 @@
-using HomeChecklist.Common;
 using HomeChecklist.Persistence.Entities;
-using HomeChecklist.Repository.Specifications;
-using Microsoft.EntityFrameworkCore;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace HomeChecklist.Repository
 {
-    public interface IHomeRepo : IRepo<Home> { }
+    public interface IHomeRepo
+    {
+        Task<IEnumerable<Home>> GetHomes();
+        Task<Home> GetHome(int id);
+        Task CreateHome(Home home);
+        Task UpdateHome(Home home);
+        Task DeleteHome(int id);
+    }
 }
