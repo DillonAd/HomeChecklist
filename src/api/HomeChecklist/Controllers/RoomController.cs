@@ -2,27 +2,29 @@
 using HomeChecklist.DTO;
 using HomeChecklist.Persistence.Entities;
 using HomeChecklist.Repository;
-using HomeChecklist.Repository.Specifications;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace HomeChecklist.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase<Room, RoomDTO>
+    public class RoomController
     {
-        public RoomController(IRepo<Room> roomRepo, IMapper mapper) 
-            : base(roomRepo, mapper) { }
+        private readonly IRoomRepo _repo;
+        private readonly IMapper _mapper;
 
-        [HttpGet]
-        public async Task<RoomDTO[]> GetRooms(int homeId)
+        public RoomController(IRoomRepo roomRepo, IMapper mapper) 
         {
-            var results = await _repo.Get(new GetByHomeIdSpec<Room>(homeId));
-            return _mapper.Map<RoomDTO[]>(results);
+            _repo = roomRepo;
+            _mapper = mapper;
         }
+
+        //[HttpGet]
+        //public async Task<RoomDTO[]> GetRooms(int homeId)
+        //{
+        //    //var results = await _repo.Get(new GetByHomeIdSpec<Room>(homeId));
+        //    //return _mapper.Map<RoomDTO[]>(results);
+        //}
     }
 }

@@ -1,19 +1,21 @@
 using AutoMapper;
-using HomeChecklist.DTO;
 using HomeChecklist.Persistence.Entities;
 using HomeChecklist.Repository;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace HomeChecklist.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaskItemController : ControllerBase<TaskItem, TaskDTO>
+    public class TaskItemController
     {
-        public TaskItemController(IRepo<TaskItem> taskRepo, IMapper mapper) 
-            : base(taskRepo, mapper) { }
+        private readonly ITaskRepo _repo;
+        private readonly IMapper _mapper;
+
+        public TaskItemController(ITaskRepo taskRepo, IMapper mapper) 
+        {
+            _repo = taskRepo;
+            _mapper = mapper;
+        }
     }
 }
