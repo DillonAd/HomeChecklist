@@ -8,7 +8,7 @@ namespace HomeChecklist.Repository
     public interface ITaskRepo
     {
         Task<TaskItem> GetTask(int id);
-        Task<IEnumerable<TaskItem>> GetTasks(Room room);
+        Task<IEnumerable<TaskItem>> GetTasks(int roomId);
         Task CreateTask(TaskItem task);
         Task CompleteTask(int id);
     }

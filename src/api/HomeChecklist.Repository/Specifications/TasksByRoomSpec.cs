@@ -6,14 +6,14 @@ namespace HomeChecklist.Repository.Specifications
 {
     internal class TasksByRoomSpec : Specification<TaskItem>
     {
-        private readonly Room _room;
+        private readonly int _roomId;
 
-        public TasksByRoomSpec(Room room)
+        public TasksByRoomSpec(int roomId)
         {
-            _room = room;
+            _roomId = roomId;
         }
 
         public override Expression<Func<TaskItem, bool>> Expression =>
-            t => t.RoomId == _room.Id;
+            t => t.RoomId == _roomId;
     }
 }

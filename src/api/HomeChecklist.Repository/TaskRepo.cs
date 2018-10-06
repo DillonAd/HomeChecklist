@@ -32,10 +32,10 @@ namespace HomeChecklist.Repository
         public async Task<TaskItem> GetTask(int id) =>
             await _repo.GetSingle(new GetEntityByIdSpec<TaskItem>(id));
 
-        public async Task<IEnumerable<TaskItem>> GetTasks(Room room) =>
-            await _repo.Get(new TasksByRoomSpec(room));
+        public async Task<IEnumerable<TaskItem>> GetTasks(int roomId) =>
+            await _repo.Get(new TasksByRoomSpec(roomId));
 
-        public async Task<IEnumerable<TaskItem>> GetActiveTasks(Room room) =>
-            await _repo.Get(new TasksByRoomSpec(room).And(new ActiveTaskSpec(true)));
+        public async Task<IEnumerable<TaskItem>> GetActiveTasks(int roomId) =>
+            await _repo.Get(new TasksByRoomSpec(roomId).And(new ActiveTaskSpec(true)));
     }
 }
