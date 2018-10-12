@@ -37,5 +37,8 @@ namespace HomeChecklist.Repository
 
         public async Task<IEnumerable<TaskItem>> GetActiveTasks(int roomId) =>
             await _repo.Get(new TasksByRoomSpec(roomId).And(new ActiveTaskSpec(true)));
+
+        public async Task UpdateTask(TaskItem task) =>
+            await _repo.Update(task);
     }
 }
