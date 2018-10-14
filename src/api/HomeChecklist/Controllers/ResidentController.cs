@@ -25,5 +25,11 @@ namespace HomeChecklist.Controllers
             var resident = _mapper.Map<Resident>(dto);
             await _repo.CreateResident(resident);
         }
+
+        public async Task UpdateResident(ResidentDTO dto)
+        {
+            var resident = _mapper.Map<Resident>(dto);
+            await _repo.UpdateResident(resident);
+        }
     }
 }
