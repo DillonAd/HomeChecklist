@@ -26,6 +26,18 @@ namespace HomeChecklist.Controllers
             await _repo.CreateResident(resident);
         }
 
+        public async Task<ResidentDTO[]> GetResidents(int homeId)
+        {
+            var residents = await _repo.GetResidents(homeId);
+            return _mapper.Map<ResidentDTO[]>(residents);
+        }
+
+        public async Task<ResidentDTO> GetResident(int residentId)
+        {
+            var resident = await _repo.GetResident(residentId);
+            return _mapper.Map<ResidentDTO>(resident);
+        }
+
         public async Task UpdateResident(ResidentDTO dto)
         {
             var resident = _mapper.Map<Resident>(dto);
