@@ -21,9 +21,10 @@ namespace HomeChecklist.Controllers
         }
 
         [HttpGet]
-        public async Task GetTasks(int roomId)
+        public async Task<TaskDTO[]> GetTasks(int roomId)
         {
             var tasks = await _repo.GetTasks(roomId);
+            return _mapper.Map<TaskDTO[]>(tasks);
         }
 
         [HttpPost]
