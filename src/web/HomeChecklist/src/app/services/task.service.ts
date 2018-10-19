@@ -9,16 +9,12 @@ import { Task } from '../interfaces/task';
 })
 export class TaskService {
 
-  private url: string = environment.baseUrl + '/api/task/';
+  private url: string = environment.baseUrl + '/api/taskitem/';
 
   constructor(private http: HttpClient) { }
 
-  getTask(id: number): Observable<Task> {
-    return this.http.get<Task>(this.url + id);
-  }
-
-  getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.url);
+  getTasks(roomId: number): Observable<Task[]> {
+    return this.http.get<Task[]>(this.url + roomId);
   }
 
   createTask(task: Task) {
@@ -29,7 +25,7 @@ export class TaskService {
     this.http.put(this.url, task);
   }
 
-  deleteTask(taskId: number) {
+  completeTask(taskId: number) {
     this.http.delete(this.url + taskId);
   }
 }

@@ -22,6 +22,6 @@ export class TaskListComponent implements OnInit {
   }
 
   refreshTasks() {
-    this.tasks = this.taskService.getTasks();
+    this.tasks = this.taskService.getTasks(this.roomId);
   }
 }
