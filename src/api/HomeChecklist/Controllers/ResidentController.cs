@@ -47,5 +47,9 @@ namespace HomeChecklist.Controllers
             var resident = _mapper.Map<Resident>(dto);
             await _repo.UpdateResident(resident);
         }
+
+        [HttpDelete]
+        public async Task DeleteResident(int residentId) =>
+            await _repo.DeleteResident(residentId);
     }
 }

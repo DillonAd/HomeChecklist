@@ -33,5 +33,11 @@ namespace HomeChecklist.Repository
             await _repo.Update(resident);
             await _repo.Save();
         }
+
+        public async Task DeleteResident(int residentId)
+        {
+            await _repo.Delete(residentId);
+            await _repo.Save();
+        }
     }
 }
