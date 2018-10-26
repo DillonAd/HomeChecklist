@@ -16,7 +16,9 @@ export class RoomListComponent implements OnInit {
 
   public rooms: Observable<Room[]>;
 
-  constructor(private roomService: RoomService) { }
+  constructor(private roomService: RoomService) {
+    this.refeshRooms();
+  }
 
   ngOnInit() {
   }
@@ -26,7 +28,7 @@ export class RoomListComponent implements OnInit {
   }
 
   newRoom() {
-    this.selectedRoom = { Id: null, Name: null, HomeId: null };
+    this.selectedRoom = { Id: null, Name: null, HomeId: this.homeId };
   }
 
   createRoom(room: Room) {
