@@ -20,7 +20,7 @@ namespace HomeChecklist.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("{homeId}")]
         public async Task<RoomDTO[]> GetRooms(int homeId)
         {
             var results = await _repo.GetRooms(homeId);
