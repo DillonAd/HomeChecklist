@@ -36,7 +36,7 @@ namespace HomeChecklist.Repository
 
         public async Task DeleteResident(int residentId)
         {
-            await _repo.Delete(residentId);
+            await _repo.Delete(new GetEntityByIdSpec<Resident>(residentId));
             await _repo.Save();
         }
     }

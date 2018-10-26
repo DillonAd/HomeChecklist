@@ -10,5 +10,6 @@ namespace HomeChecklist.Repository
         Task<Resident> GetResident(int residentId);
         Task<IEnumerable<Resident>> GetResidents(int homeId);
         Task UpdateResident(Resident resident);
+        Task DeleteResident(int residentId);
     }
 }
