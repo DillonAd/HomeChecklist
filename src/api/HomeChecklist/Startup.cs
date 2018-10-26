@@ -36,6 +36,11 @@ namespace HomeChecklist
                 c.SwaggerDoc("v1", new Info { Title = "Home Checklist API", Version = "v1" });
             });
 
+            services.AddTransient<IHomeRepo, HomeRepo>();
+            services.AddTransient<IResidentRepo, ResidentRepo>();
+            services.AddTransient<IRoomRepo, RoomRepo>();
+            services.AddTransient<ITaskRepo, TaskRepo>();
+
             services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
 
             services.AddAutoMapper();
