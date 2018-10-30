@@ -28,14 +28,14 @@ namespace HomeChecklist.Controllers
         }
 
         [HttpPost]
-        public async Task CreateRoom(RoomDTO dto)
+        public async Task CreateRoom([FromBody] RoomDTO dto)
         {
             var room = _mapper.Map<Room>(dto);
             await _repo.AddRoom(room);
         }
 
         [HttpPut]
-        public async Task UpdateRoom(RoomDTO dto)
+        public async Task UpdateRoom([FromBody] RoomDTO dto)
         {
             var room = _mapper.Map<Room>(dto);
             await _repo.UpdateRoom(room);
