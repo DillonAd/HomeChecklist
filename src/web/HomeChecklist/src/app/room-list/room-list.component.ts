@@ -16,11 +16,10 @@ export class RoomListComponent implements OnInit {
 
   public rooms: Observable<Room[]>;
 
-  constructor(private roomService: RoomService) {
-    this.refeshRooms();
-  }
+  constructor(private roomService: RoomService) { }
 
   ngOnInit() {
+    this.refeshRooms();
   }
 
   refeshRooms() {
