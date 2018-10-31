@@ -11,7 +11,7 @@ namespace HomeChecklist.Profiles
             CreateMap<RoomDTO, Room>()
                 .ForMember(r => r.Id, m => m.MapFrom(r => r.Id))
                 .ForMember(r => r.Name, m => m.MapFrom(r => r.Name))
-                .ForMember(r => r.HomeId, m => m.Ignore());
+                .ForMember(r => r.HomeId, m => m.MapFrom(r => r.HomeId));
         }
     }
 }
