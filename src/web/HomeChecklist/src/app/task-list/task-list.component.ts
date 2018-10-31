@@ -11,14 +11,14 @@ import { Observable } from 'rxjs';
 export class TaskListComponent implements OnInit {
 
   @Input() roomId: number;
-  // @Input() taskId: number;
-
+  
   public tasks: Observable<Task[]>;
 
   constructor(private taskService: TaskService) {
   }
 
   ngOnInit() {
+    this.refreshTasks();
   }
 
   refreshTasks() {

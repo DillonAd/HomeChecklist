@@ -41,7 +41,7 @@ namespace HomeChecklist.Controllers
             await _repo.UpdateRoom(room);
         }
 
-        [HttpDelete]
+        [HttpDelete("{roomId}")]
         public async Task DeleteRoom(int roomId)
         {
             await _repo.DeleteRoom(roomId);

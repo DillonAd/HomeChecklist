@@ -10,8 +10,14 @@
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{room.name}}
+        <button mat-button (click)="editRoom(room)">
+          <mat-icon matListIcon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="deleteRoom(room)">
+          <mat-icon matListIcon>delete</mat-icon>
+        </button>
       </mat-panel-title>
+      <app-task-list [roomId]="room.id"></app-task-list>
     </mat-expansion-panel-header>
-    <app-task-list [roomId]="room.id"></app-task-list>
   </mat-expansion-panel>
 </mat-accordion>

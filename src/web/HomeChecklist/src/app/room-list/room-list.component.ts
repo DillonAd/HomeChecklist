@@ -27,7 +27,7 @@ export class RoomListComponent implements OnInit {
   }
 
   newRoom() {
-    this.selectedRoom = { Id: null, Name: null, HomeId: this.homeId };
+    this.selectedRoom = { id: null, name: null, homeId: this.homeId };
   }
 
   createRoom(room: Room) {
@@ -37,6 +37,15 @@ export class RoomListComponent implements OnInit {
 
   updateRoom(room: Room) {
     this.roomService.updateRoom(room);
+    this.refeshRooms();
+  }
+
+  editRoom(room: Room) {
+    this.selectedRoom = room;
+  }
+
+  deleteRoom(room: Room) {
+    this.roomService.deleteRoom(room.id);
     this.refeshRooms();
   }
 }
