@@ -25,4 +25,8 @@ export class RoomComponent implements OnInit {
   updateRoom() {
     this.roomChanged.emit(this.room);
   }
+
+  cancel() {
+    this.room = null;
+  }
 }
