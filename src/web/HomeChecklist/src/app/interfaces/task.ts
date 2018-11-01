@@ -1,7 +1,7 @@
 export interface Task {
-    Id: number;
-    Name: string;
-    LastDone: Date;
-    Interval: number;
-    RoomId: number;
+    id: number;
+    name: string;
+    lastDone: Date;
+    interval: number;
+    roomId: number;
 }
