@@ -11,17 +11,36 @@ import { Observable } from 'rxjs';
 export class TaskListComponent implements OnInit {
 
   @Input() roomId: number;
-  
-  public tasks: Observable<Task[]>;
 
-  constructor(private taskService: TaskService) {
-  }
+  private selectedTask: Task;
+  
+  private tasks: Observable<Task[]>;
+
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
     this.refreshTasks();
   }
 
+  createTask() {
+    this.selectedTask = { id: null, name: null, lastDone: null, interval: null, roomId: this.roomId }
+  }
+
   refreshTasks() {
     this.tasks = this.taskService.getTasks(this.roomId);
+  }
+
+  taskCreated(task: Task) {
+    this.taskService.createTask(task);
+  }
+
+  taskUpdated(task: Task) {
+    this.taskService.updateTask(task);
+    this.refreshTasks();
+  }
+
+  taskCompleted(task: Task) {
+    this.taskService.completeTask(task.id);
+    this.refreshTasks();
   }
 }

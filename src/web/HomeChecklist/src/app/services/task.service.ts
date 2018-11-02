@@ -18,14 +18,14 @@ export class TaskService {
   }
 
   createTask(task: Task) {
-    this.http.post(this.url, task);
+    this.http.post(this.url, task).subscribe();
   }
 
   updateTask(task: Task) {
-    this.http.put(this.url, task);
+    this.http.put(this.url, task).subscribe();
   }
 
   completeTask(taskId: number) {
-    this.http.delete(this.url + taskId);
+    this.http.delete(this.url + taskId).subscribe();
   }
 }

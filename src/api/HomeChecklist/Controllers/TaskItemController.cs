@@ -20,7 +20,7 @@ namespace HomeChecklist.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("{roomId}")]
         public async Task<TaskDTO[]> GetTasks(int roomId)
         {
             var tasks = await _repo.GetTasks(roomId);
@@ -41,7 +41,7 @@ namespace HomeChecklist.Controllers
             await _repo.UpdateTask(task);
         }
 
-        [HttpDelete]
+        [HttpDelete("{taskId}")]
         public async Task CompleteTask(int taskId)
         {
             await _repo.CompleteTask(taskId);
