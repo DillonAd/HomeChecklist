@@ -1,4 +1,4 @@
-<mat-card *ngIf="homeId != null && roomId != null">
+<mat-card *ngIf="roomId != null">
   <button mat-button id="btnAdd" 
     (click)="createTask()">Add</button>
   <app-task *ngIf="selectedTask != null" [task]="selectedTask"
