@@ -8,6 +8,7 @@
     </mat-form-field>
   <span *ngIf="edit != false">{{task.Name}}</span>
 </mat-checkbox>
+
 <button mat-button id="btnAddTask" 
   (click)="createTask()" 
   *ngIf="edit == true && task.id == null">Add</button>
@@ -15,6 +16,6 @@
   (click)="updateTask()" 
   *ngIf="edit == true && task.id != null">Update</button>
   
-<button mat-button (click)="startEdit(task)">
+<button mat-button (click)="startEdit(task)" *ngIf="edit == false">
   <mat-icon matListIcon>edit</mat-icon>
 </button>
