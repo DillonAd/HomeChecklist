@@ -13,16 +13,25 @@ export class TaskComponent implements OnInit {
   @Output() taskCreated: EventEmitter<Task> = new EventEmitter();
   @Output() taskChanged: EventEmitter<Task> = new EventEmitter();
 
+  private edit: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.edit = false;
   }
 
-  created() {
+  startEdit() {
+    this.edit = true;
+  }
+
+  createTask() {
+    this.edit = false;
     this.taskCreated.emit(this.task);
   }
 
-  changed() {
+  updateTask() {
+    this.edit = false;
     this.taskChanged.emit(this.task);
   }
 }
