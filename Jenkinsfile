@@ -2,13 +2,11 @@ node {
     checkout scm
     
     stage("Build - Front End") {
-        cd ./src/web/HomeChecklist/
-        yarn
-        ng build
+        sh 'yarn'
+        sh 'ng build ./src/web/HomeChecklist/'
     }
     stage("Build - API") {
-        cd ./src/api/
-        dotnet publish ./HomeChecklist/HomeChecklist.csproj --output ./out
+        sh 'dotnet publish ./src/api/HomeChecklist/HomeChecklist.csproj --output ./out'
     }
     stage("Deploy - Staging") {
 
