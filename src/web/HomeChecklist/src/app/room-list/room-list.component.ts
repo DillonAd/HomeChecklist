@@ -12,7 +12,7 @@ export class RoomListComponent implements OnInit {
 
   @Input() homeId: number;
 
-  private selectedRoom: Room;
+  selectedRoom: Room;
 
   public rooms: Observable<Room[]>;
 
