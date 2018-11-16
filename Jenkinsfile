@@ -5,7 +5,7 @@ node {
         sh 'docker build ./src/web/HomeChecklist/'
     }
     stage("Build - API") {
-        sh 'dotnet publish $(pwd)/src/api/HomeChecklist/HomeChecklist.csproj --output ./out'
+        sh 'docker build ./src/api/'
     }
     stage("Deploy - Staging") {
 
