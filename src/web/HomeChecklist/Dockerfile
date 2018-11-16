@@ -5,8 +5,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install
-RUN ng build
+RUN yarn
+RUN ng build --prod=true --aot=true
 
 FROM nginx AS release
 
