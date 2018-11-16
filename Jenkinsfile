@@ -3,10 +3,10 @@ node {
     
     stage("Build - Front End") {
         sh 'yarn'
-        sh 'ng build ./src/web/HomeChecklist/'
+        sh 'pushd $(pwd)/src/web/HomeChecklist/ && ng build && popd'
     }
     stage("Build - API") {
-        sh 'dotnet publish ./src/api/HomeChecklist/HomeChecklist.csproj --output ./out'
+        sh 'dotnet publish $(pwd)/src/api/HomeChecklist/HomeChecklist.csproj --output ./out'
     }
     stage("Deploy - Staging") {
 
