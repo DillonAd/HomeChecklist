@@ -10,8 +10,8 @@ import { Home } from '../interfaces/home';
 })
 export class HomeListComponent implements OnInit {
 
-  private homes: Observable<Home[]>;
-  private selectedHome: Home;
+  homes: Observable<Home[]>;
+  selectedHome: Home;
 
   constructor(private homeService: HomeService) {
     this.refreshHomes();

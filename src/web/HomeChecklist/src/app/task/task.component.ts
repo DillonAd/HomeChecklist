@@ -13,7 +13,7 @@ export class TaskComponent implements OnInit {
   @Output() taskCreated: EventEmitter<Task> = new EventEmitter();
   @Output() taskChanged: EventEmitter<Task> = new EventEmitter();
 
-  private edit: boolean;
+  edit: boolean;
 
   constructor() { }
 
