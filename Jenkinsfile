@@ -1,12 +1,12 @@
 node {
     checkout scm
 
-    def tagName = ""
+    def tagName = ''
 
-    if($(BRANCH_NAME) == "master") {
-        tagName = '${BUILD_NUMBER}'
+    if($(BRANCH_NAME) == 'master') {
+        tagName = ${BUILD_NUMBER}
     } else {
-        tagName = '${BRANCH_NAME}-${BUILD_NUMBER}'
+        tagName = ${BRANCH_NAME} + '-' + ${BUILD_NUMBER}
     }
 
     stage("Build - Front End") {
@@ -15,8 +15,12 @@ node {
     stage("Build - API") {
         sh 'docker build --tag localhost:1337/homechecklist-api:${tagName} ./src/api/'
     }
-    stage("Deploy - Production") {
-        sh 'docker push localhost:1337/homechecklist-web:${tagName}'
-        sh 'docker push localhost:1337/homechecklist-api:${tagName}'
+
+    //Only deploy on accepted changes
+    if(${BRANCH_NAME} == 'master') {
+        stage("Deploy - Production") {
+            sh 'docker push localhost:1337/homechecklist-web:${tagName}'
+            sh 'docker push localhost:1337/homechecklist-api:${tagName}'
+        }
     }
 }
