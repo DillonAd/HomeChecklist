@@ -4,9 +4,9 @@ node {
     def tagName = ""
 
     if($(BRANCH_NAME) == "master") {
-        tagName = "${BUILD_NUMBER}"
+        tagName = '${BUILD_NUMBER}'
     } else {
-        tagName = "${BRANCH_NAME}-${BUILD_NUMBER}"
+        tagName = '${BRANCH_NAME}-${BUILD_NUMBER}'
     }
 
     stage("Build - Front End") {
