@@ -22,7 +22,7 @@ node {
             sh "docker push localhost:1337/homechecklist-web:${tagName}"
             sh "docker push localhost:1337/homechecklist-api:${tagName}"
 
-            sh "kubectl create -f $pwd/src/api/nginx-deployment.yaml"
+            sh "kubectl create -f $pwd/src/api/api-deployment.yaml"
         }
     }
 }
