@@ -21,7 +21,7 @@ node {
             sh "docker push localhost:1337/homechecklist-web:${tagName}"
             sh "docker push localhost:1337/homechecklist-api:${tagName}"
 
-            sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yaml"
+            sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yml"
         } else {
             pritnln 'No need to deploy changes from Pull Requests'
         }
