@@ -16,13 +16,16 @@ node {
         sh "docker build --tag localhost:1337/homechecklist-api:${tagName} ./src/api/"
     }
 
-    //Only deploy on accepted changes
-    if("${BRANCH_NAME}" == 'master') {
-        stage("Deploy - Production") {
+    stage("Deploy - Production") {
+        
+        //Only deploy on accepted changes
+        if("${BRANCH_NAME}" == 'master' || "${BRANCH_NAME}" == 'k8s') {
             sh "docker push localhost:1337/homechecklist-web:${tagName}"
             sh "docker push localhost:1337/homechecklist-api:${tagName}"
 
             sh "kubectl create -f $pwd/src/api/api-deployment.yaml"
+        } else {
+            pritnln 'No need to deploy changes from Pull Requests'
         }
     }
 }
