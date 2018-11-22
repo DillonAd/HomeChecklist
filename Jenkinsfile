@@ -21,7 +21,12 @@ node {
             sh "docker push localhost:1337/homechecklist-web:${tagName}"
             sh "docker push localhost:1337/homechecklist-api:${tagName}"
 
-            sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yml"
+            if [[ $(kubectl get deployments | grep homechecklist-api) = 0 ]] then 
+                sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yaml"
+                sh "kubectl expose deployment homechecklist-api --type=LoadBalancer --port 5002 --target-port 5002"
+            else
+                sh "kubectl set image deployment/homechecklist-api homechecklist-api=homechecklist-api:${tagName}"
+            fi
         } else {
             pritnln 'No need to deploy changes from Pull Requests'
         }
