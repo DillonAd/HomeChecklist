@@ -20,13 +20,15 @@ node {
         if("${BRANCH_NAME}" == 'master' || "${BRANCH_NAME}" == 'k8s') {
             sh "docker push localhost:1337/homechecklist-web:${tagName}"
             sh "docker push localhost:1337/homechecklist-api:${tagName}"
+            
+            def getDeploymentStatus = sh(script:'kubectl get deployments | grep homechecklist-api', returnStatus:true)
 
-            if [[ $(kubectl get deployments | grep homechecklist-api) = 0 ]] then 
+            if (getDeploymentStatus == 0) {
                 sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yaml"
                 sh "kubectl expose deployment homechecklist-api --type=LoadBalancer --port 5002 --target-port 5002"
-            else
+            } else {
                 sh "kubectl set image deployment/homechecklist-api homechecklist-api=homechecklist-api:${tagName}"
-            fi
+            }
         } else {
             pritnln 'No need to deploy changes from Pull Requests'
         }
