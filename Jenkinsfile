@@ -21,9 +21,9 @@ node {
             sh "docker push localhost:1337/homechecklist-web:${tagName}"
             sh "docker push localhost:1337/homechecklist-api:${tagName}"
             
-            def getDeploymentStatus = sh(script:'kubectl get deployments | grep homechecklist-api', returnStatus:true)
-
-            if (getDeploymentStatus == 0) {
+            def getDeploymentStatus = sh(script:'eval "kubectl get deployments | grep homechecklist-api"', returnStatus:true)
+            
+            if (getDeploymentStatus != 0) {
                 sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yaml"
                 sh "kubectl expose deployment homechecklist-api --type=LoadBalancer --port 5002 --target-port 5002"
             } else {
