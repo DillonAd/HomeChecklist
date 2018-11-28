@@ -27,7 +27,7 @@ node {
                 sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yaml"
                 sh "kubectl expose deployment homechecklist-api --type=LoadBalancer --port 5002 --target-port 5002"
             } else {
-                sh "kubectl set image deployment/homechecklist-api homechecklist-api=homechecklist-api:${tagName}"
+                sh "kubectl set image deployment/homechecklist-api homechecklist-api=localhost:1337/homechecklist-api:${tagName}"
             }
         } else {
             pritnln 'No need to deploy changes from Pull Requests'
