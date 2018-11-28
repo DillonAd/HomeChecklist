@@ -30,7 +30,7 @@ node {
                 sh "kubectl set image deployment/homechecklist-api homechecklist-api=localhost:1337/homechecklist-api:${tagName}"
             }
         } else {
-            pritnln 'No need to deploy changes from Pull Requests'
+            echo 'No need to deploy changes from Pull Requests'
         }
     }
 }
