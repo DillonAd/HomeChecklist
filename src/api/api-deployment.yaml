@@ -18,4 +18,4 @@ spec:
       - name: homechecklist-api
         image: localhost:1337/homechecklist-api:latest
         ports:
-        - containerPort: 5002
+        - containerPort: 5000
