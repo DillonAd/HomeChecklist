@@ -25,7 +25,7 @@ node {
             
             if (getDeploymentStatus != 0) {
                 sh "kubectl create -f ${WORKSPACE}/src/api/api-deployment.yaml"
-                sh "kubectl expose deployment homechecklist-api --type=LoadBalancer --name=homechecklist-api"
+                sh "kubectl expose deployment homechecklist-api --type=ClusterIP --name=homechecklist-api"
             } else {
                 sh "kubectl set image deployment/homechecklist-api homechecklist-api=localhost:1337/homechecklist-api:${tagName}"
             }
