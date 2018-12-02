@@ -29,6 +29,15 @@ node {
             } else {
                 sh "kubectl set image deployment/homechecklist-api homechecklist-api=localhost:1337/homechecklist-api:${tagName}"
             }
+
+            getDeploymentStatus = sh(script:'eval "kubectl get deployments | grep homechecklist-web"', returnStatus:true)
+            
+            if (getDeploymentStatus != 0) {
+                sh "kubectl create -f ${WORKSPACE}/src/web/HomeChecklist/web-deployment.yaml"
+                sh "kubectl expose deployment homechecklist-web --type=ClusterIP --name=homechecklist-web"
+            } else {
+                sh "kubectl set image deployment/homechecklist-web homechecklist-web=localhost:1337/homechecklist-web:${tagName}"
+            }
         } else {
             echo 'No need to deploy changes from Pull Requests'
         }
