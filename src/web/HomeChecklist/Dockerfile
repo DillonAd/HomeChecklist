@@ -7,6 +7,7 @@ COPY . .
 
 RUN npm install
 RUN ng build --prod=true --aot=true
+RUN ng test
 
 FROM nginx AS release
 
