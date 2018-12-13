@@ -16,7 +16,7 @@ node {
         sh "docker build --tag localhost:1337/homechecklist-api:${tagName} ./src/api/"
     }
     stage("Test - Front End") {
-        sh "pushd $(pwd) && cd ./src/web/HomeChecklist && ng test false && popd"
+        sh "pushd $(pwd) && cd ./src/web/HomeChecklist && ng test && popd"
     }
     stage("Deploy") {   
         //Only deploy on accepted changes
