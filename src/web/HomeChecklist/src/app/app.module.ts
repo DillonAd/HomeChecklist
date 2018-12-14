@@ -28,26 +28,26 @@ import { RoomComponent } from './room/room.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TaskListComponent,
-    TaskComponent,
     HomeListComponent,
     HomeComponent,
     RoomListComponent,
-    RoomComponent
+    RoomComponent,
+    TaskComponent,
+    TaskListComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    HttpModule,
     MatButtonModule,
     MatCardModule,
-    MatInputModule,
-    MatListModule,
-    MatIconModule,
+    MatCheckboxModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatIconModule,
+    MatInputModule,
+    MatListModule
   ],
   providers: [
     HomeService,

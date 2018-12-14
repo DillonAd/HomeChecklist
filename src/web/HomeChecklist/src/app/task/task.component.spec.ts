@@ -1,4 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import {
+  MatCheckbox,
+  MatFormField,
+  MatIcon,
+  MatRipple } from '@angular/material';
 
 import { TaskComponent } from './task.component';
 
@@ -8,7 +14,14 @@ describe('TaskComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TaskComponent ]
+      imports: [FormsModule],
+      declarations: [
+        MatCheckbox,
+        MatFormField,
+        MatIcon,
+        MatRipple,
+        TaskComponent
+      ]
     })
     .compileComponents();
   }));

@@ -1,5 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  MatCard,
+  MatCheckbox,
+  MatFormField,
+  MatIcon,
+  MatList,
+  MatListItem,
+  MatRipple } from '@angular/material';
+import { PortalModule } from '@angular/cdk/portal';
 
+import { TaskComponent } from '../task/task.component';
 import { TaskListComponent } from './task-list.component';
 
 describe('TaskListComponent', () => {
@@ -8,7 +21,22 @@ describe('TaskListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TaskListComponent ]
+      imports: [
+        FormsModule,
+        HttpClientModule,
+        PortalModule
+      ],
+      declarations: [
+        MatCard,
+        MatCheckbox,
+        MatFormField,
+        MatIcon,
+        MatList,
+        MatListItem,
+        MatRipple,
+        TaskComponent,
+        TaskListComponent
+      ]
     })
     .compileComponents();
   }));
@@ -23,3 +51,10 @@ describe('TaskListComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({
+  selector: 'app-task',
+  template: ''
+})
+class MockTaskComponent {
+}
