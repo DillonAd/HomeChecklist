@@ -1,11 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatFormField } from '@angular/material';
+import { MatCard, MatCardContent, MatCardHeader } from '@angular/material/card';
+import { MatFormField } from '@angular/material/form-field';
 import { PortalModule } from '@angular/cdk/portal';
 
 import { RoomComponent } from './room.component';
